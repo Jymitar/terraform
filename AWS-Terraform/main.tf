@@ -136,6 +136,9 @@ resource "aws_instance" "db-web" {
   ami           = "ami-03cbad7144aeda3eb"
   instance_type = "t2.micro"
   key_name      = "keypairname"
+  tags = {
+    Name = "DB"
+  }
 
   network_interface {
     network_interface_id = aws_network_interface.db-web-net.id
