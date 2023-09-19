@@ -98,7 +98,7 @@ resource "aws_network_interface" "db-web-net" {
 resource "aws_instance" "app-web" {
   ami           = "ami-03cbad7144aeda3eb"
   instance_type = "t2.micro"
-  key_name      = "WebTest"
+  key_name      = "keypairname"
   tags = {
     Name = "WEB"
   }
@@ -114,7 +114,7 @@ resource "aws_instance" "app-web" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("WebTest.pem")
+      private_key = file("keypairname.pem")
       host        = self.public_ip
     }
   }
@@ -126,7 +126,7 @@ resource "aws_instance" "app-web" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("WebTest.pem")
+      private_key = file("keypairname.pem")
       host        = self.public_ip
     }
   }
@@ -135,7 +135,7 @@ resource "aws_instance" "app-web" {
 resource "aws_instance" "db-web" {
   ami           = "ami-03cbad7144aeda3eb"
   instance_type = "t2.micro"
-  key_name      = "WebTest"
+  key_name      = "keypairname"
 
   network_interface {
     network_interface_id = aws_network_interface.db-web-net.id
@@ -148,7 +148,7 @@ resource "aws_instance" "db-web" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("WebTest.pem")
+      private_key = file("keypairname.pem")
       host        = self.public_ip
     }
   }
@@ -160,7 +160,7 @@ resource "aws_instance" "db-web" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("WebTest.pem")
+      private_key = file("keypairname.pem")
       host        = self.public_ip
     }
   }
