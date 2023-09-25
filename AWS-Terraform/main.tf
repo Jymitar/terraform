@@ -1,7 +1,7 @@
 provider "aws" {
-  access_key = "ACESS_KEY"
-  secret_key = "SECRET_KEY"
-  region     = "eu-central-1"
+  access_key = var.v-access-key
+  secret_key = var.v-secret-key
+  region     = var.region
 }
 
 resource "aws_vpc" "web-vpc" {
@@ -96,9 +96,9 @@ resource "aws_network_interface" "db-web-net" {
 }
 
 resource "aws_instance" "app-web" {
-  ami           = "ami-03cbad7144aeda3eb"
-  instance_type = "t2.micro"
-  key_name      = "keypairname"
+  ami           = var.v-ami-image
+  instance_type = var.v-instance-type
+  key_name      = var.v-instance-key
   tags = {
     Name = "WEB"
   }
@@ -133,9 +133,9 @@ resource "aws_instance" "app-web" {
 }
 
 resource "aws_instance" "db-web" {
-  ami           = "ami-03cbad7144aeda3eb"
-  instance_type = "t2.micro"
-  key_name      = "keypairname"
+  ami           = var.v-ami-image
+  instance_type = var.v-instance-type
+  key_name      = var.v-instance-key
   tags = {
     Name = "DB"
   }
