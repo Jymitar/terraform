@@ -18,7 +18,7 @@ variable "region" {
 # Shareable information
 variable "v-ami-image" {
     description = "Red Hat distro"
-    default = "ami-026ebd4cfe2c043b2"
+    default = "ami-03cbad7144aeda3eb"
 }
 variable "v-instance-type" {
     description = "EC2 instance type"
