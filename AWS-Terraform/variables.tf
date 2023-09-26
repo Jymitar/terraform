@@ -17,8 +17,8 @@ variable "region" {
 
 # Shareable information
 variable "v-ami-image" {
-    description = "Ubuntu Server 22.04 LTS (HVM), SSD Volume Type"
-    default = "ami-04e601abe3e1a910f"
+    description = "Red Hat distro"
+    default = "ami-026ebd4cfe2c043b2"
 }
 variable "v-instance-type" {
     description = "EC2 instance type"
