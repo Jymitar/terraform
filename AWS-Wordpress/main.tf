@@ -1,7 +1,7 @@
 provider "aws" {
-  access_key = "<Your Access Key>"
-  secret_key = "<Your secret Key>"
-  region     = "eu-central-1"
+  access_key = var.v-access-key
+  secret_key = var.v-secret-key
+  region     = var.region
 }
 
 resource "aws_vpc" "web-vpc" {
@@ -80,9 +80,9 @@ resource "aws_network_interface" "wp-web-net" {
 }
 
 resource "aws_instance" "wp-web" {
-  ami           = "ami-04e601abe3e1a910f"
-  instance_type = "t2.micro"
-  key_name      = "your key pair"
+  ami           = var.v-ami-image
+  instance_type = var.v-instance-type
+  key_name      = var.v-instance-key
   tags = {
     Name = "WORDPRESS"
   }
